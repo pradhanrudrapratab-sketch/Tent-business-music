@@ -1,0 +1,13 @@
+node_modules/
+.env
+data.db
+data.db-shm
+data.db-wal
+uploads/audio/*
+uploads/backgrounds/*
+uploads/thumbnails/*
+!uploads/audio/.gitkeep
+!uploads/backgrounds/.gitkeep
+!uploads/thumbnails/.gitkeep
+*.log
+.DS_Store

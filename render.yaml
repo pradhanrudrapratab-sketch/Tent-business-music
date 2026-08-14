@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: tent-function-music
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        generateValue: true
+      - key: DB_PATH
+        value: /opt/render/project/src/data.db
