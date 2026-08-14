@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Tent Function Music</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/admin/js/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="bg-layer" class="bg-layer" style="background: linear-gradient(135deg,#0f0f1a,#1a0f2e)"></div>
+  <div id="bg-overlay" class="bg-overlay" style="background:rgba(0,0,0,0.6)"></div>
+
+  <!-- LOGIN SCREEN -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-box glass">
+      <div class="login-logo">🎵</div>
+      <h1 class="login-title">Admin Panel</h1>
+      <p class="login-sub">Tent Function Music</p>
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" id="login-user" class="form-input" placeholder="admin" autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="login-pass" class="form-input" placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <button class="btn-primary" onclick="doLogin()">Login</button>
+      <div id="login-err" class="form-msg error" style="margin-top:0.5rem"></div>
+    </div>
+  </div>
+
+  <!-- ADMIN APP -->
+  <div id="admin-app" class="hidden">
+    <!-- SIDEBAR -->
+    <aside id="sidebar" class="sidebar glass">
+      <div class="sidebar-logo">🎵 TFM Admin</div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-page="dashboard">📊 Dashboard</a>
+        <a href="#" class="nav-item" data-page="songs">🎵 Songs</a>
+        <a href="#" class="nav-item" data-page="playlists">📑 Playlists</a>
+        <a href="#" class="nav-item" data-page="categories">📂 Categories</a>
+        <a href="#" class="nav-item" data-page="functions">🎉 Functions</a>
+        <a href="#" class="nav-item" data-page="suggestions">💡 Suggestions <span id="badge-suggestions" class="badge hidden">0</span></a>
+        <a href="#" class="nav-item" data-page="menu">☰ Menu</a>
+        <a href="#" class="nav-item" data-page="appearance">🎨 Appearance</a>
+        <a href="#" class="nav-item" data-page="nuke">☢️ Nuke Mode</a>
+        <a href="#" class="nav-item" data-page="settings">⚙️ Settings</a>
+        <div style="flex:1"></div>
+        <a href="/" target="_blank" class="nav-item">🌐 View Site</a>
+        <a href="#" class="nav-item" onclick="doLogout()">🚪 Logout</a>
+      </nav>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <button class="btn-icon" id="sidebar-toggle">☰</button>
+        <span id="page-title-bar">Dashboard</span>
+        <span id="admin-user-badge" class="user-badge"></span>
+      </div>
+      <div id="admin-content" class="admin-content"></div>
+    </main>
+  </div>
+
+  <script src="/admin/js/admin.js"></script>
+</body>
+</html>
