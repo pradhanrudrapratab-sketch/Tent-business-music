@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temporarily Unavailable</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    body { display:flex; align-items:center; justify-content:center; min-height:100vh; }
+    .nuke-box { text-align:center; padding: 3rem 2rem; }
+    .nuke-icon { font-size: 4rem; margin-bottom: 1rem; }
+    .nuke-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; }
+    .nuke-msg { opacity: 0.7; font-size: 1.1rem; }
+  </style>
+</head>
+<body>
+  <div id="bg-layer" class="bg-layer"></div>
+  <div id="bg-overlay" class="bg-overlay"></div>
+  <div class="nuke-box glass" id="nuke-content">
+    <div class="nuke-icon" id="nuke-icon">🔧</div>
+    <div class="nuke-title" id="nuke-title">Website Temporarily Unavailable</div>
+    <div class="nuke-msg" id="nuke-msg">Please check back soon.</div>
+  </div>
+  <script>
+    fetch('/api/settings').then(r=>r.json()).then(s=>{
+      if(s.nuke_icon) document.getElementById('nuke-icon').textContent = s.nuke_icon;
+      if(s.nuke_title) document.getElementById('nuke-title').textContent = s.nuke_title;
+      if(s.nuke_message) document.getElementById('nuke-msg').textContent = s.nuke_message;
+      if(s.dark_background) document.getElementById('bg-layer').style.backgroundImage = `url(${s.dark_background})`;
+    });
+  </script>
+</body>
+</html>
